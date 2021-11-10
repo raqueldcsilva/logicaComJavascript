@@ -3,49 +3,28 @@
 IMPORTANTE:
 Esse número pode ser informado através de qualquer entrada de sua preferência ou pode ser previamente definido no código;*/
 
-let fibonacci = []; 
-let resFibo = calculaFibo()
-fibonacci[0] = 0;
-fibonacci[1] = 1;
+var infoNum = 9; //trocar esse número para diferentes resultados
+var num = infoNum; //será usado no parâmetro
+var sequenciaFibo = [];
 
+function fibonacci(num){
+    
+    if(num < 2) {
+        return num
+    }
 
+    return fibonacci(num - 1) + fibonacci(num - 2);
+}
 
-function calculaFibo(){
-    for (let i = 2; i <= 10; i++) {
+for (let i = 0; i < infoNum+2; i++) {
+    sequenciaFibo[i] =  fibonacci(i); //comparação número informado com a sequência de fibo calculada
+    if(sequenciaFibo[i] === infoNum) {
 
-        fibonacci[i] = fibonacci[i - 2] + fibonacci[i - 1];
-        console.log(fibonacci[i]);
+        return console.log(`Você informou o número ${infoNum}, ele está na sequência de Fibonacci` )
+
     }
 }
 
+return console.log(`Você informou o número ${infoNum}, ele não está na sequência de Fibonacci`);
 
 
-/*calcula o número*/
-let numero = []; 
-let num = 4
-let resNum = calculaNumero()
-
-numero[0] = 0;
-numero[1] = num;
-
-
-
-function calculaNumero(){
-    for (let i = 2; i <= 10; i++) {
-
-        numero[i] = numero[i - 2] + numero[i - 1];
-        console.log(numero[i]);
-    }
-}
-
-
-function comparacao(resFibo, resNum){
-    if (resFibo !== resNum){
-        console.log("O número indicado não pertence a sequência fibonacci")
-    }
-    else{
-        console.log('O número faz parte da sequência de fibonacci')
-    }
-}
-
-console.log(comparacao())
